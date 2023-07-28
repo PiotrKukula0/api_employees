@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony_app
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
